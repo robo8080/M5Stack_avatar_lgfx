@@ -6,7 +6,11 @@
 #define EYEBLOW_H_
 
 #define LGFX_USE_V1
-#include <M5Core2.h>
+# if defined(ARDUINO_M5STACK_Core2) || defined(M5AVATAR_CORE2) || defined(_M5Core2_H_)
+  #include <M5Core2.h>
+# else
+  #include <M5Stack.h>
+# endif
 #define LGFX_AUTODETECT // 自動認識 (M5Stack, M5StickC/CPlus, ODROID-GO, TTGO T-Watch, TTGO T-Wristband, LoLin D32 Pro, ESP-WROVER-KIT)
 #include <LovyanGFX.h>
 #include "BoundingRect.h"
